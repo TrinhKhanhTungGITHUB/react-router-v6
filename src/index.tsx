@@ -7,14 +7,19 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Invoices from "./pages/Invoices";
 import Expenses from "./pages/Expenses";
 import NotFound from "./pages/NotFound";
+import Invoice from "./pages/Invoice";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<App />}>
-                    <Route path="/invoices" element={<Invoices />} />
+                <Route path="/home" element={<App />}>
+                    <Route path="invoices" element={<Invoices />}>
+                        <Route index element={<h2 style={{ padding: "1rem" }}>Please select a Invoice</h2>} />
+                        <Route path=":invoiceId" element={<Invoice />}></Route>
+                        <Route path="*" element={<NotFound />} />
+                    </Route>
                     <Route path="expenses" element={<Expenses />} />
                     {/* No other routes match */}
                     <Route path="*" element={<NotFound />} />

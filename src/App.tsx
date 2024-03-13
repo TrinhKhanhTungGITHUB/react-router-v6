@@ -8,13 +8,13 @@ function App() {
             <h1>Bookkeeper</h1>
             <nav
                 style={{
-                  borderBottom: '1px solid',
-                  paddingBottom: '1rem'
+                    borderBottom: "1px solid",
+                    paddingBottom: "1rem",
                 }}
             >
-                <Link to="/invoices">Invoices</Link> | <Link to="/expenses">Expenses</Link>
+                <Link to="invoices">Invoices</Link> | <Link to="expenses">Expenses</Link>
             </nav>
-            <Outlet/>
+            <Outlet />
         </div>
     );
 }
